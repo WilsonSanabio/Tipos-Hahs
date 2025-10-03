@@ -1,0 +1,154 @@
+body {
+  font-family: "Trebuchet MS", sans-serif;
+  background-color: #eef;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.hash-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.hash-card {
+  background-color: #fff;
+  border: 2px solid #99c;
+  border-radius: 8px;
+  width: 160px;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  font-size: 1em;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.hash-card:hover {
+  transform: scale(1.05);
+  background-color: #dde;
+  border-color: #66a;
+}
+
+#detalhes-card {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 30, 30, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.card-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 70%;
+  max-width: 700px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.titulo-centralizado {
+  text-align: center;
+  font-size: 1.6em;
+  color: #333;
+  margin-top: 10px;
+}
+
+.comentario {
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.card-content ul {
+  list-style: none;
+  padding-left: 0;
+  font-size: 0.95em;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.card-content li {
+  margin-bottom: 6px;
+}
+
+.botao-voltar {
+  text-align: center;
+}
+
+.botao-voltar button {
+  background-color: #3366cc;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.botao-voltar button:hover {
+  background-color: #254b9c;
+}
+
+#shutdown-button {
+  text-align: center;
+  margin-top: 30px;
+}
+
+#shutdown-button button {
+  background-color: #c33;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#shutdown-button button:hover {
+  background-color: #a00;
+}
+
+#footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9em;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .hash-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hash-card {
+    width: 90%;
+    font-size: 1em;
+  }
+
+  .card-content {
+    width: 90%;
+  }
+
+  #shutdown-button button {
+    width: 90%;
+    font-size: 1em;
+  }
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Tipos de Hash</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+  <h1>Tipos de Hash</h1>
+
+  <div id="TipoHashs"></div>
+
+  <div id="detalhes-card">
+    <div class="card-content">
+      <p id="comentarioHash" class="comentario"></p>
+      <h2 id="tituloHash" class="titulo-centralizado"></h2>
+      <ul id="infoHash"></ul>
+      <div class="botao-voltar">
+        <button onclick="fecharCard()">Voltar</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="shutdown-button">
+    <button onclick="encerrarServidor()">Encerrar Servidor</button>
+  </div>
+
+  <div id="footer">
+    <p><i>Sana/Bios Informática & Consultoria [2025]</i></p>
+    <small>&copy; 2025 Wilson Sanabio.</small>
+  </div>
+
+  <script>
+	let ataques = {};
+
+	fetch('hash.json')
+	  .then(response => response.json())
+	  .then(json => {
+		ataques = json;
+		renderPorHash();
+	  });
+
+
+    function renderPorHash() {
+      const container = document.getElementById('TipoHashs');
+      container.innerHTML = '';
+
+      const hashsUnicos = [...new Set(ataques.hashes.map(a => a.hash))].sort();
+
+      const grid = document.createElement('div');
+      grid.className = 'hash-grid';
+
+      hashsUnicos.forEach(hash => {
+        const card = document.createElement('div');
+        card.className = 'hash-card';
+        card.textContent = hash;
+        card.onclick = () => abrirDetalhes(hash);
+        grid.appendChild(card);
+      });
+
+      container.appendChild(grid);
+    }
+
+    function abrirDetalhes(hashSelecionado) {
+      const ataque = ataques.hashes.find(a => a.hash === hashSelecionado);
+      if (!ataque) return;
+
+      document.getElementById('comentarioHash').textContent = ataques._comentario;
+      document.getElementById('tituloHash').textContent = ataque.hash;
+
+      document.getElementById('infoHash').innerHTML = `
+        <li><strong>Tamanho:</strong> ${ataque.tamanho}</li>
+        <li><strong>Início:</strong> ${ataque.inicio}</li>
+        <li><strong>Exemplo:</strong> ${ataque.exemplo}</li>
+      `;
+
+      document.getElementById('detalhes-card').style.display = 'flex';
+    }
+
+    function fecharCard() {
+      document.getElementById('detalhes-card').style.display = 'none';
+    }
+
+    function encerrarServidor() {
+      fetch('/encerrar', { method: 'POST' })
+        .then(() => alert("Servidor encerrado. Você pode fechar esta aba."))
+        .catch(() => alert("Erro ao tentar encerrar o servidor."));
+    }
+  </script>
+</body>
+</html>

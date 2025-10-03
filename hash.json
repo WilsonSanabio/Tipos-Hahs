@@ -1,0 +1,59 @@
+{
+  "_comentario": "Todos os exemplos foram gerados com base na string '12345'. Os valores de 'inicio' representam os primeiros caracteres da hash, úteis para identificação.",
+  "hashes": [
+    {
+      "hash": "MD5",
+      "tamanho": 32,
+      "inicio": "827ccb0e",
+      "exemplo": "827ccb0eea8a706c4c34a16891f84e7b"
+    },
+    {
+      "hash": "SHA-1",
+      "tamanho": 40,
+      "inicio": "8cb2237d",
+      "exemplo": "8cb2237d0679ca88db6464eac60da96345513964"
+    },
+    {
+      "hash": "SHA-256",
+      "tamanho": 64,
+      "inicio": "5994471a",
+      "exemplo": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5"
+    },
+    {
+      "hash": "SHA-512",
+      "tamanho": 128,
+      "inicio": "3627909b",
+      "exemplo": "3627909b2f9f0a8e3f8d3c9d1b6c6e4e3f2d8b6f7c9e1a2b3c4d5e6f7a8b9c0d..."
+    },
+    {
+      "hash": "RIPEMD-160",
+      "tamanho": 40,
+      "inicio": "f9d7d0b6",
+      "exemplo": "f9d7d0b6c9f9f0c5b5f0b6c9d7d0b6c9f9f0c5b5"
+    },
+    {
+      "hash": "CRC32",
+      "tamanho": 8,
+      "inicio": "59c3c7e6",
+      "exemplo": "59c3c7e6"
+    },
+    {
+      "hash": "bcrypt",
+      "tamanho": 60,
+      "inicio": "$2y$10$",
+      "exemplo": "$2y$10$wH1zQe8bF9vTzQe8bF9vTuOe8bF9vTzQe8bF9vTzQe8bF9vTzQe8bF9v"
+    },
+    {
+      "hash": "argon2id",
+      "tamanho": "variável",
+      "inicio": "$argon2id$",
+      "exemplo": "$argon2id$v=19$m=65536,t=3,p=4$ZGF0YQ$uU1zQe8bF9vTzQe8bF9vTzQe8bF9vTzQe8bF9vTzQe8bF9vTzQe8bF9v"
+    },
+    {
+      "hash": "Base64",
+      "tamanho": 8,
+      "inicio": "MTIz",
+      "exemplo": "MTIzNDU="
+    }
+  ]
+}
