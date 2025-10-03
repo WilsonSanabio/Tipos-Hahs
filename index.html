@@ -20,6 +20,13 @@
         <button onclick="fecharCard()">Voltar</button>
       </div>
     </div>
+	<div class="gerador-hash">
+	  <label for="entradaTexto"><strong>Gerar nova hash:</strong></label>
+	  <input type="text" id="entradaTexto" placeholder="Digite uma string">
+	  <button onclick="gerarHash()">Gerar</button>
+	  <p id="resultadoHash"></p>
+	</div>
+
   </div>
 
   <div id="shutdown-button">
@@ -87,6 +94,39 @@
         .then(() => alert("Servidor encerrado. Você pode fechar esta aba."))
         .catch(() => alert("Erro ao tentar encerrar o servidor."));
     }
+	
+	async function gerarHash() {
+	  const texto = document.getElementById('entradaTexto').value;
+	  const tipo = document.getElementById('tituloHash').textContent;
+
+	  if (!texto) return;
+
+	  const encoder = new TextEncoder();
+	  const data = encoder.encode(texto);
+
+	  let algoritmo;
+	  switch (tipo) {
+		case 'SHA-1':
+		  algoritmo = 'SHA-1';
+		  break;
+		case 'SHA-256':
+		  algoritmo = 'SHA-256';
+		  break;
+		case 'SHA-512':
+		  algoritmo = 'SHA-512';
+		  break;
+		default:
+		  document.getElementById('resultadoHash').textContent = 'Este tipo de hash requer biblioteca externa.';
+		  return;
+	  }
+
+	  const hashBuffer = await crypto.subtle.digest(algoritmo, data);
+	  const hashArray = Array.from(new Uint8Array(hashBuffer));
+	  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+	  document.getElementById('resultadoHash').textContent = `Hash gerada (${algoritmo}): ${hashHex}`;
+	}
+
   </script>
 </body>
 </html>
