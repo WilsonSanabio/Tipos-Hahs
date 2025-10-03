@@ -16,17 +16,16 @@
       <p id="comentarioHash" class="comentario"></p>
       <h2 id="tituloHash" class="titulo-centralizado"></h2>
       <ul id="infoHash"></ul>
+	  <div class="gerador-hash">
+	    <label for="entradaTexto"><strong>Gerar nova hash:</strong></label>
+	    <input type="text" id="entradaTexto" placeholder="Digite uma string">
+	    <button onclick="gerarHash()">Gerar</button>
+	    <p id="resultadoHash"></p>
+	  </div>
       <div class="botao-voltar">
         <button onclick="fecharCard()">Voltar</button>
       </div>
     </div>
-	<div class="gerador-hash">
-	  <label for="entradaTexto"><strong>Gerar nova hash:</strong></label>
-	  <input type="text" id="entradaTexto" placeholder="Digite uma string">
-	  <button onclick="gerarHash()">Gerar</button>
-	  <p id="resultadoHash"></p>
-	</div>
-
   </div>
 
   <div id="shutdown-button">
